@@ -98,9 +98,6 @@ const predefined = parseDefined( `
 
 const defined = mergeDefineds( predefined, platformDefined, variantDefined, ...userDefineds );
 
-console.log(defined.build);
-process.exit();
-
 const cCompilerRecipe = format2( "{recipe.c.o.pattern}" ),
 	cppCompilerRecipe = format2( "{recipe.cpp.o.pattern}" ),
 	assemblierRecipe = format2( "{recipe.S.o.pattern}" ),
