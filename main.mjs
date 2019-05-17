@@ -19,7 +19,7 @@ const format2 = str => format( str, key => {
 } );
 
 const filterBy = ( text, regex ) => Array.from( new Set(
-	text.split( /\s+/g )
+	text.split( /\s+(?=-)/g )
 		.map( e => e.replace( /^("|')|\1$/g, "" ) )
 		.filter( e => ( regex ).test( e ) )
 ) );
