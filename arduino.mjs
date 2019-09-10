@@ -9,45 +9,34 @@
 import * as path from "path";
 import { fold, unfold } from "./fold.mjs";
 
-/**
- * @param {string} pathname
- */
+/** @param {string} pathname */
 export const interpretPath = pathname => {
 	/*
-	 * Arduino Hardware package hierarchy
+	 * Arduino hardware package tree
 	 *
-	 * [vendor] {
-	 * 	hardware {
-	 * 		[arch] {
-	 * 			[version] {
-	 * 				cores {
-	 * 					[core] {
-	 *
-	 * 					}
-	 * 				}
-	 * 				variants {
-	 * 					[variant]
-	 * 				}
-	 * 				libraries? {
-	 *
-	 * 				}
-	 * 				boards.local.txt?
-	 * 				boards.txt
-	 * 				keywords.txt?
-	 * 				platform.local.txt?
-	 * 				platform.txt
-	 * 				programmers.txt?
-	 * 			}
-	 * 		}
-	 * 	}
-	 * 	tools {
-	 * 		[tool] {
-	 * 			[version] {
-	 *
-	 * 			}
-	 * 		}
-	 * 	}
-	 * }
+	 * <vendor>
+	 * ├── hardware
+	 * │   └── <arch>
+	 * │       └── <version>
+	 * │           ├── cores
+	 * │           │   └── <core>
+	 * │           │       └── ...
+	 * │           ├── variants
+	 * │           │   └── <variant>
+	 * │           │       └── ...
+	 * │           ├── libraries?
+	 * │           │   └── <library>
+	 * │           │       └── ...
+	 * │           ├── boards.local.txt?
+	 * │           ├── boards.txt
+	 * │           ├── keywords.txt?
+	 * │           ├── platform.local.txt?
+	 * │           ├── platform.txt
+	 * │           └── programmers.txt?
+	 * └── tools
+	 *     └── <tool>
+	 *         └── <version>
+	 *             └── ...
 	 */
 
 	const filenames = path.resolve( pathname ).split( path.sep ),
